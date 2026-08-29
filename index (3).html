@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Behind the Breakthrough — The Uncredited Record</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #191a1f;
+    --paper: #ece5d3;
+    --paper-dark: #ddd3ba;
+    --navy: #1c2b3d;
+    --redact: #14151a;
+    --amber: #b9822f;
+    --teal: #3f6d67;
+    --line: rgba(25,26,31,0.18);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Source Serif 4', Georgia, serif;
+    line-height: 1.6;
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(28,43,61,0.05), transparent 40%),
+      radial-gradient(circle at 85% 60%, rgba(185,130,47,0.06), transparent 45%);
+  }
+
+  a { color: inherit; }
+
+  .mono {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    letter-spacing: 0.06em;
+  }
+
+  .wrap {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* ---------- Header ---------- */
+  header {
+    padding: 22px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  header .wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .brand {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .brand .dot {
+    width: 8px; height: 8px;
+    background: var(--amber);
+    border-radius: 50%;
+    display: inline-block;
+  }
+  nav a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-left: 26px;
+    opacity: 0.75;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 3px;
+    transition: opacity .2s, border-color .2s;
+  }
+  nav a:hover { opacity: 1; border-color: var(--amber); }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    padding: 90px 0 70px;
+    border-bottom: 1px solid var(--line);
+  }
+  .file-tag {
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--navy);
+    border: 1px solid var(--line);
+    padding: 5px 10px;
+    margin-bottom: 28px;
+  }
+  h1 {
+    font-family: 'Newsreader', serif;
+    font-weight: 500;
+    font-size: clamp(38px, 6vw, 68px);
+    line-height: 1.05;
+    margin: 0 0 26px;
+    max-width: 14ch;
+  }
+  .redact {
+    background: var(--redact);
+    color: var(--redact);
+    border-radius: 2px;
+    padding: 0 8px;
+    cursor: default;
+    transition: color .5s ease, background .5s ease;
+    display: inline-block;
+  }
+  .redact.revealed {
+    color: var(--paper);
+    background: var(--teal);
+  }
+  .hero p.lede {
+    max-width: 46ch;
+    font-size: 19px;
+    color: #3a3a3a;
+    margin: 0 0 34px;
+  }
+  .hero-note {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: #6b6b6b;
+    max-width: 42ch;
+  }
+
+  .btn {
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: var(--navy);
+    color: var(--paper);
+    padding: 13px 22px;
+    border: 1px solid var(--navy);
+    transition: background .2s, color .2s;
+  }
+  .btn:hover { background: transparent; color: var(--navy); }
+  .btn.ghost {
+    background: transparent;
+    color: var(--navy);
+    margin-left: 12px;
+  }
+  .btn.ghost:hover { background: var(--navy); color: var(--paper); }
+
+  /* ---------- Section shared ---------- */
+  section { padding: 70px 0; border-bottom: 1px solid var(--line); }
+  .kicker {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin: 0 0 12px;
+  }
+  h2 {
+    font-family: 'Newsreader', serif;
+    font-weight: 500;
+    font-size: clamp(26px, 4vw, 36px);
+    margin: 0 0 22px;
+  }
+  .lead-col { max-width: 60ch; color: #333; }
+
+  /* ---------- Mission ---------- */
+  .mission-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 50px;
+    align-items: start;
+  }
+  .mission-grid ol {
+    list-style: none;
+    margin: 0; padding: 0;
+    border-top: 1px solid var(--line);
+  }
+  .mission-grid li {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 14px;
+  }
+  .mission-grid li .num {
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--amber);
+    font-size: 13px;
+    padding-top: 3px;
+  }
+  .mission-grid li strong { display: block; font-family: 'Newsreader', serif; font-size: 17px; font-weight: 600; margin-bottom: 3px; }
+  .mission-grid li span { color: #444; font-size: 15px; }
+
+  /* ---------- Case files ---------- */
+  .cases {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 36px;
+  }
+  .case {
+    background: var(--paper-dark);
+    border: 1px solid var(--line);
+    padding: 22px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 260px;
+  }
+  .case::before {
+    content: attr(data-status);
+    position: absolute;
+    top: 18px; right: -30px;
+    transform: rotate(35deg);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--teal);
+    border: 1px solid var(--teal);
+    padding: 2px 34px;
+  }
+  .case .id { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6b6b6b; margin-bottom: 14px; }
+  .case h3 { font-family: 'Newsreader', serif; font-size: 21px; font-weight: 600; margin: 0 0 4px; }
+  .case .role { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--navy); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px; }
+  .case p { font-size: 14.5px; color: #333; margin: 0; flex-grow: 1; }
+  .case .credited { margin-top: 16px; padding-top: 12px; border-top: 1px dashed var(--line); font-size: 12.5px; color: #6b6b6b; }
+  .case .credited b { color: var(--ink); }
+
+  /* ---------- CTA / submit ---------- */
+  .cta {
+    background: var(--navy);
+    color: var(--paper);
+    border-bottom: none;
+  }
+  .cta .kicker { color: var(--amber); }
+  .cta h2 { color: var(--paper); }
+  .cta .lead-col { color: #d8d3c2; }
+  .cta-form {
+    margin-top: 32px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    max-width: 640px;
+  }
+  .cta-form input, .cta-form textarea {
+    background: rgba(236,229,211,0.06);
+    border: 1px solid rgba(236,229,211,0.3);
+    color: var(--paper);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    padding: 12px 14px;
+  }
+  .cta-form textarea { grid-column: 1 / -1; min-height: 90px; resize: vertical; }
+  .cta-form input::placeholder, .cta-form textarea::placeholder { color: rgba(236,229,211,0.5); }
+  .cta-form .full { grid-column: 1 / -1; }
+  .cta small { display:block; margin-top: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: rgba(236,229,211,0.55); }
+
+  footer {
+    padding: 30px 0;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: #6b6b6b;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @media (max-width: 760px) {
+    .mission-grid { grid-template-columns: 1fr; }
+    .cases { grid-template-columns: 1fr; }
+    nav a { margin-left: 14px; }
+    .cta-form { grid-template-columns: 1fr; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .redact { transition: none; }
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="brand"><span class="dot"></span>Behind the Breakthrough</div>
+    <nav>
+      <a href="#mission">Mission</a>
+      <a href="#cases">Case Files</a>
+      <a href="#submit">Submit a Case</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="file-tag">Case Archive — Open Investigation</div>
+    <h1>Every breakthrough<br>has a name<br>we never learned.<br><span class="redact" id="revealName">click to unredact</span></h1>
+    <p class="lede">We research, verify, and publish the stories of the people who did the work behind history's biggest moments — the ones whose names got left off the record.</p>
+    <div>
+      <a href="#submit" class="btn">Submit a case</a>
+      <a href="#cases" class="btn ghost">Read the files</a>
+    </div>
+    <p class="hero-note" style="margin-top:28px;">↑ that redaction bar is hiding a real name. Click it.</p>
+  </div>
+</section>
+
+<section id="mission">
+  <div class="wrap">
+    <p class="kicker">The Mission</p>
+    <div class="mission-grid">
+      <div>
+        <h2>History keeps a shortlist. We're building the long one.</h2>
+        <p class="lead-col">Most credit goes to whoever was easiest to put a face to — a founder, a front-man, a famous name attached late. Behind the Breakthrough exists to find the people who were actually in the room, verify their part in the record, and give their story a permanent home.</p>
+      </div>
+      <ol>
+        <li><span class="num">01</span><div><strong>Research</strong><span>We dig through patents, lab notes, interviews, and primary sources to verify who actually did the work.</span></div></li>
+        <li><span class="num">02</span><div><strong>Build the record</strong><span>Verified cases go into a public, citable database — built to last, not to trend.</span></div></li>
+        <li><span class="num">03</span><div><strong>Tell the story</strong><span>Short-form video and long-form writing turn each case into something people actually watch and share.</span></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section id="cases">
+  <div class="wrap">
+    <p class="kicker">Case Files — Closed</p>
+    <h2>A few names the record got wrong</h2>
+    <p class="lead-col">Three cases already well documented by historians — the kind of story this archive is built to collect, verify, and keep from being forgotten again.</p>
+    <div class="cases">
+      <div class="case" data-status="verified">
+        <div class="id mono">CASE FILE — DNA / 1953</div>
+        <h3>Rosalind Franklin</h3>
+        <div class="role">X-ray crystallographer</div>
+        <p>Her imaging work was central to identifying the double-helix structure of DNA.</p>
+        <div class="credited">Credit went to: <b>Watson &amp; Crick</b> — Nobel Prize, 1962</div>
+      </div>
+      <div class="case" data-status="verified">
+        <div class="id mono">CASE FILE — TELEPHONY / 1860</div>
+        <h3>Antonio Meucci</h3>
+        <div class="role">Inventor</div>
+        <p>Demonstrated a working voice-transmitting device over a decade before the famous patent.</p>
+        <div class="credited">Credit went to: <b>Alexander Graham Bell</b> — patent, 1876</div>
+      </div>
+      <div class="case" data-status="verified">
+        <div class="id mono">CASE FILE — COMPUTING / 1843</div>
+        <h3>Ada Lovelace</h3>
+        <div class="role">Mathematician</div>
+        <p>Wrote what's considered the first algorithm designed for a machine, decades ahead of its use.</p>
+        <div class="credited">Credit went to: <b>Charles Babbage</b> — as sole inventor of the Engine</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="submit">
+  <div class="wrap">
+    <p class="kicker">Open a Case</p>
+    <h2>Know someone the record left out?</h2>
+    <p class="lead-col">Tell us who they are, what they actually did, and where we can start verifying it. Every submission gets researched before it's published.</p>
+    <form class="cta-form" onsubmit="event.preventDefault(); alert('This form is a preview — connect it to an email service or form backend to go live.');">
+      <input type="text" placeholder="Their name" required>
+      <input type="text" placeholder="Your name" required>
+      <input type="email" placeholder="Your email" required class="full">
+      <textarea placeholder="What did they do, and who got the credit instead?" required></textarea>
+      <div class="full"><button type="submit" class="btn">Submit case</button></div>
+    </form>
+    <small>Draft site — wire this form up to Formspree, Netlify Forms, or a mailto link once you're ready to collect real submissions.</small>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="display:flex; justify-content:space-between; width:100%;">
+    <span>Behind the Breakthrough — est. 2026</span>
+    <span>Case archive in progress</span>
+  </div>
+</footer>
+
+<script>
+  const el = document.getElementById('revealName');
+  el.addEventListener('click', () => {
+    if (!el.classList.contains('revealed')) {
+      el.textContent = 'Rosalind Franklin';
+      el.classList.add('revealed');
+    } else {
+      el.textContent = 'click to unredact';
+      el.classList.remove('revealed');
+    }
+  });
+</script>
+
+</body>
+</html>
